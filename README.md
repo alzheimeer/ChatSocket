@@ -1,9 +1,9 @@
 
-## Description
+## Descripción
 
-Chat application using NestJS, Socket.io, ReatJs or Angular.
+CHAT& application using NestJS, Socket.io, ReatJs or Angular.
 
-## Prerequisites
+## Pre requisitos
 
 - [Node.js](https://nodejs.org/en/)
 - [Nest CLI](https://docs.nestjs.com/cli/overview)
@@ -11,14 +11,22 @@ Chat application using NestJS, Socket.io, ReatJs or Angular.
 - [React](https://reactjs.org/)
 - [Typescript](https://www.typescriptlang.org/)
 
-npm create vite
 
-## Stay in touch
+## Documentación
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" width="50" height="50" alt="ReactJS Logo"/>
+<img src="https://nestjs.com/img/logo-small.svg" width="50" height="50" alt="NestJS Logo"/>
+<img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg" width="50" height="50" alt="Node.js Logo"/>
+
+
+- [Entra Aqui Para Ver Documentacion Del Frontend README](Front-React/README.md)
+- [Entra Aqui Para Ver Documentacion Del Backend README](Back/README.md)
+  
+## Mantente en contacto
 
 - Linkedin - [Mauricio Quintero](https://www.linkedin.com/in/alzheimeer)
 - Website - [https://fogcxy.com/chat]([https://fogcxy.com/chat)
 
 
-## License
+## Licencia
 
-ChatSocket [MIT licensed](LICENSE).
+CHAT& [MIT licensed](LICENSE)

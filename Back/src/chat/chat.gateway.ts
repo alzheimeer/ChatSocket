@@ -30,19 +30,20 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
     if (!this.usersService.isValidAlias(alias)) {
       console.log('Alias inválido: solo se permiten letras y números');
       client.emit('error', 'Alias inválido: solo se permiten letras y números');
-      client.disconnect();
+      // client.disconnect();
       return;
     }
 
     if (this.usersService.isAliasInUse(alias)) {
       console.log('Alias ya en uso');
       client.emit('error', 'Alias ya en uso');
-      client.disconnect();
+      // client.disconnect();
       return;
     }
     // Añadir usuario y notificar a todos los usuarios
     this.usersService.addUser(alias, client);
     client.data.alias = alias; // Almacenar alias en el socket
+    client.emit('connectionSuccess', { message: 'Conectado exitosamente.' });
     this.updateConnectedUsersList();
   }
 
@@ -61,6 +62,8 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
     if (alias) {
       this.usersService.removeUser(alias);
       console.log(`Cliente desconectado: ${alias}`);
+      // Enviar un evento específico para notificar sobre el usuario desconectado
+      this.server.emit('userDisconnected', alias);
       // Enviar la lista actualizada de usuarios conectados a todos los usuarios
       this.updateConnectedUsersList();
     } else {
