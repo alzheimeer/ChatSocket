@@ -1,0 +1,51 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 90vh; /* Ajusta según tus necesidades */
+  max-height: 90vh;
+}
+
+.user-list {
+  flex-grow: 1;
+  width: 20%; /* Ajusta según tus necesidades */
+  overflow-y: auto; /* Permite el desplazamiento vertical */
+  position: fixed; /* Mantiene la lista de usuarios fija */
+  height: 90vh;
+  max-height: 90vh;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto; /* Permite el desplazamiento vertical */
+  margin-left: 20%; /* Ajusta para no solapar con la lista de usuarios */
+  height: calc(90vh - 60px); /* Ajusta según la altura del input y botón */
+  padding: 10px;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%; /* Evita que el mensaje ocupe todo el ancho */
+  margin-bottom: 10px;
+}
+
+.chat-box {
+  display: flex;
+  justify-content: space-between;
+  position: fixed; /* Fija el input y el botón en la parte inferior */
+  bottom: 0;
+  width: 80%; /* Asegura que se alinee con el margen de mensajes */
+  padding: 10px;
+  background-color: white; /* Fondo para el área de input */
+  border-top: 1px solid #ccc;
+}
+
+.input-message {
+  flex-grow: 1;
+  margin-right: 10px; /* Espacio entre el input y el botón */
+}
+
+button {
+  padding: 10px 20px;
+  cursor: pointer;
+}
