@@ -4,10 +4,12 @@ import LoginComponent from "./components/LoginComponent";
 import ChatComponent from "./components/ChatComponent";
 
 // Inicializa el socket conectándose al servidor de Socket.IO.
-const socket = io("http://localhost:5170");
+const socket = io("http://localhost:5170", {
+  withCredentials: false,
+  timeout: 2000, // Tiempo de espera para la conexión inicial de 2 segundos.
+});
 
 function App() {
-  // Estados para manejar el alias del usuario, el estado de inicio de sesión y los errores de inicio de sesión.
   const [alias, setAlias] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
   const [loginError, setLoginError] = useState("");
@@ -15,31 +17,36 @@ function App() {
   useEffect(() => {
     // Escucha el evento 'connectionSuccess' del servidor.
     socket.on("connectionSuccess", () => {
-      setLoggedIn(true); // Marca al usuario como logueado.
-      setLoginError(""); // Limpia cualquier mensaje de error previo.
+      setLoggedIn(true);
+      setLoginError("");
     });
 
-    // Escucha el evento 'error' para errores de conexión.
+    // Escucha el evento 'error' para errores de conexión específicos de la aplicación.
     socket.on("error", (errorMessage) => {
-      setLoginError(errorMessage); // Configura el mensaje de error.
-      setLoggedIn(false); // Asegura que el usuario no esté marcado como logueado.
+      setLoginError(errorMessage);
+      setLoggedIn(false);
+    });
+
+    // Escucha el evento 'connect_error' para errores generales de conexión.
+    socket.on("connect_error", (error) => {
+      alert("Error: Servidor caido, intenta mas tarde.");
+      console.error("Error de conexión:", error);
     });
 
     // Limpieza de los listeners al desmontar el componente.
     return () => {
-      socket.off("error");
       socket.off("connectionSuccess");
+      socket.off("error");
+      socket.off("connect_error");
     };
   }, []);
 
-  // Maneja el intento de inicio de sesión.
   const handleLogin = (userAlias) => {
-    setLoginError(""); // Limpia el mensaje de error cuando se intenta un nuevo inicio de sesión.
-    setAlias(userAlias); // Establece el alias del usuario.
-    socket.emit("connectUser", { alias: userAlias }); // Emite el evento de inicio de sesión al servidor.
+    setLoginError("");
+    setAlias(userAlias);
+    socket.emit("connectUser", { alias: userAlias });
   };
 
-  // Renderiza el componente de inicio de sesión o el componente del chat según el estado de inicio de sesión.
   return (
     <div className="bg-slate-200">
       {!loggedIn ? (
