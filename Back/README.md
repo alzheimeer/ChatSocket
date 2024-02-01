@@ -98,7 +98,7 @@ $ npm run start:prod
 ## Stay in touch
 
 - Linkedin - [Mauricio Quintero](https://www.linkedin.com/in/alzheimeer)
-- Website - [https://fogcxy.com/chat]([https://fogcxy.com/chat)
+- Website - [https://fogcxy.com]([https://fogcxy.com)
 
 
 ## License

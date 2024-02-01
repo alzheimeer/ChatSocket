@@ -55,3 +55,13 @@ Se utilizan componentes funcionales en lugar de clases, y se emplean hooks como 
 ### Manejo de Efectos Laterales (Side-Effects):
 
 El uso de useEffect para manejar efectos laterales, como la comunicación con el servidor de WebSocket, es un patrón clave en el proyecto. Este hook permite ejecutar efectos que no están directamente relacionados con el renderizado del componente, como establecer y limpiar listeners de eventos.
+
+## Mantente en contacto
+
+- Linkedin - [Mauricio Quintero](https://www.linkedin.com/in/alzheimeer)
+- Website - [https://fogcxy.com/]([https://fogcxy.com/)
+
+
+## Licencia
+
+CHAT& [MIT licensed](LICENSE)
