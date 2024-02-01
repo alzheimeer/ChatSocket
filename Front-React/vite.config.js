@@ -1,7 +1,15 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
 export default defineConfig({
+  base: "/chat/",
   plugins: [react()],
-})
+  server: {
+    proxy: {
+      '/socket.io': {
+        target: 'http://localhost:5170',
+        ws: true
+      }
+    }
+  }
+});

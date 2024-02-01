@@ -4,7 +4,7 @@ import LoginComponent from "./components/LoginComponent";
 import ChatComponent from "./components/ChatComponent";
 
 // Inicializa el socket conectándose al servidor de Socket.IO.
-const socket = io("http://localhost:5170", {
+const socket = io("/", {
   withCredentials: false,
   timeout: 2000, // Tiempo de espera para la conexión inicial de 2 segundos.
 });

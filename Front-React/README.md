@@ -1,10 +1,10 @@
-# Chat WebSockets-SoketIO
-# React
+# Chat& WebSockets-SoketIO
+# React Corriendo En El Puerto 5173
 
 ![Login](1.jpg)
 ![Chat Movil](3.jpg)
 ![Chat General](2.jpg)
-## Install and Run
+## Instalar y Correr
 
 ```bash
 npm install
@@ -15,6 +15,14 @@ npm install
 npm run dev
 ```
 
+# Build Prod
+```bash
+npm run build 
+```
+
+# Agregar a PM2
+- pm2 start npm --name  "chat" --watch -- start
+  
 ## Documentacion  SOLID
 
 #### S - (Principio de Responsabilidad Única): En React, este principio se aplica al diseñar componentes que tienen una única razón para cambiar. Por ejemplo, LoginComponent solo se ocupa del inicio de sesión, mientras que ChatComponent gestiona la visualización y el envío de mensajes.

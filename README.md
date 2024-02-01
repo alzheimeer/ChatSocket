@@ -2,7 +2,7 @@
 ## Descripción
 
 CHAT& application using NestJS, Socket.io, ReatJs or Angular.
-
+![Chat Movil](/Front-React/3.jpg)
 ## Pre requisitos
 
 - [Node.js](https://nodejs.org/en/)

@@ -6,9 +6,11 @@ async function bootstrap() {
 
   // Configura explícitamente las opciones de CORS
   app.enableCors({
-    origin: 'http://localhost:5173',
+    origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
+    allowedHeaders: ['*'],
+    exposedHeaders: ['*'],
+    // credentials: true,
   });
 
   await app.listen(5170);
